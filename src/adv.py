@@ -75,6 +75,10 @@ def get_user_direction():
 def show_location_info():
     print(f"You are now in the {current_player.current_room.name}, Description: {current_player.current_room.description}")
 
+
+def no_room_opt():
+    print("Sorry, there is nothing in that direction")
+
 # step 4 - compare users input and take them to location, if location is invalid, throw error
     # check the player's current location and see if there is 
     # a room in the specified direction 
@@ -85,18 +89,20 @@ def get_location(get_user_direction):
     # if get_user_direction + "_to" == "n_to":
     #     print(room['foyer'])
     # elif get_location + "_to" == 
-    if get_user_direction == "n":
+    if get_user_direction == "n" and not current_player.current_room.n_to == None:
         current_player.current_room = current_player.current_room.n_to
         show_location_info()
-    elif get_user_direction == "s":
+    elif get_user_direction == "s" and not current_player.current_room.s_to == None:
         current_player.current_room = current_player.current_room.s_to
         show_location_info()
-    elif get_user_direction == "e":
+    elif get_user_direction == "e" and not current_player.current_room.e_to == None:
         current_player.current_room = current_player.current_room.e_to
         show_location_info()
-    elif get_user_direction == "w":
+    elif get_user_direction == "w" and not current_player.current_room.w_to == None:
         current_player.current_room = current_player.current_room.w_to
         show_location_info()
+    else:
+        no_room_opt()
     
 
 
