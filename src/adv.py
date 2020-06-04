@@ -1,4 +1,5 @@
 from room import Room
+from player import Player
 
 # Declare all the rooms
 
@@ -78,6 +79,7 @@ def get_location(direction):
 
 
 # Make a new player object that is currently in the 'outside' room.
+current_play = Player("Chelsea", room['outside'])
 
 # Write a loop that:
 #
