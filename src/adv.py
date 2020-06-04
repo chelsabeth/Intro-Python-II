@@ -49,14 +49,6 @@ make sure players choice is a valid direction - if not display error msg
 welcome_msg = "Welcome to Penelope the Princess, an adventure game! Please pick a direction to go in - you are currently outside"
 quit_msg = "Thanks for playing Penelope the Princess!"
 
-direction_options = {
-    1: "n",
-    2: "s",
-    3: "e",
-    4: "w",
-    5: "q"
-}
-
 #
 # Main
 #
@@ -69,8 +61,21 @@ def show_welcome_msg():
 
 # step 2 - prompt user to make a choice
 def get_user_direction():
-    direction = input("[1] n [2] s [3] e [4] w [5] q")
-    return direction_options[int(direction)]
+    direction = input("please choose a direction - n, s, e, w")
+    return direction
+
+
+# step 3 - if user quits game, show message
+def quit_game():
+    quit_msg = "Thanks for playing Penelope the Princess!"
+    print(quit_msg)
+
+
+# step 4 - compare users input and take them to location, if location is invalid, throw error
+def get_location(direction):
+    if direction == "n":
+        print("you chose north")
+
 
 # Make a new player object that is currently in the 'outside' room.
 
@@ -84,3 +89,7 @@ def get_user_direction():
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+# show_welcome_msg()
+while True:
+    choice = get_user_direction()
+    get_location(choice)
