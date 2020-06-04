@@ -86,9 +86,6 @@ def no_room_opt():
     # otherwise, print a message saying "we can't go there" and 
     # not move the player 
 def get_location(get_user_direction):
-    # if get_user_direction + "_to" == "n_to":
-    #     print(room['foyer'])
-    # elif get_location + "_to" == 
     if get_user_direction == "n" and not current_player.current_room.n_to == None:
         current_player.current_room = current_player.current_room.n_to
         show_location_info()
