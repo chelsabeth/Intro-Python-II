@@ -33,9 +33,49 @@ room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
+# print(room["treasure"].s_to.name)
+
+# PLANNING:
+'''
+*Penelope the Princess* 
+display welcome message & describe game
+player will start outside, tell them their location
+prompt user to make a choice between n, s, e, w
+    if user quits the game, stop the loop and show a msg
+based on players chosen direction, go to new location & display new location
+make sure players choice is a valid direction - if not display error msg
+'''
+
+welcome_msg = "Welcome to Penelope the Princess, an adventure game! Please pick a direction to go in - you are currently outside"
+quit_msg = "Thanks for playing Penelope the Princess!"
+
 #
 # Main
 #
+
+# step 1 - display welcome message & describe game
+def show_welcome_msg():
+    welcome_msg = "Welcome to Penelope the Princess, an adventure game! Please pick a direction to go in - you are currently outside"
+    print(welcome_msg)
+
+
+# step 2 - prompt user to make a choice
+def get_user_direction():
+    direction = input("please choose a direction - n, s, e, w")
+    return direction
+
+
+# step 3 - if user quits game, show message
+def quit_game():
+    quit_msg = "Thanks for playing Penelope the Princess!"
+    print(quit_msg)
+
+
+# step 4 - compare users input and take them to location, if location is invalid, throw error
+def get_location(direction):
+    if direction == "n":
+        print("you chose north")
+
 
 # Make a new player object that is currently in the 'outside' room.
 
@@ -49,3 +89,7 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+# show_welcome_msg()
+while True:
+    choice = get_user_direction()
+    get_location(choice)
