@@ -67,19 +67,41 @@ def get_user_direction():
 
 
 # step 3 - if user quits game, show message
-def quit_game():
-    quit_msg = "Thanks for playing Penelope the Princess!"
-    print(quit_msg)
+# def quit_game():
+    # quit = input("press q to quit")
+    # quit_msg = "Thanks for playing Penelope the Princess!"
+    # print(quit_msg)
 
+def show_location_info():
+    print(f"You are now in the {current_player.current_room.name}, Description: {current_player.current_room.description}")
 
 # step 4 - compare users input and take them to location, if location is invalid, throw error
-def get_location(direction):
-    if direction == "n":
-        print("you chose north")
+    # check the player's current location and see if there is 
+    # a room in the specified direction 
+    # if there is, move them there to that room 
+    # otherwise, print a message saying "we can't go there" and 
+    # not move the player 
+def get_location(get_user_direction):
+    # if get_user_direction + "_to" == "n_to":
+    #     print(room['foyer'])
+    # elif get_location + "_to" == 
+    if get_user_direction == "n":
+        current_player.current_room = current_player.current_room.n_to
+        show_location_info()
+    elif get_user_direction == "s":
+        current_player.current_room = current_player.current_room.s_to
+        show_location_info()
+    elif get_user_direction == "e":
+        current_player.current_room = current_player.current_room.e_to
+        show_location_info()
+    elif get_user_direction == "w":
+        current_player.current_room = current_player.current_room.w_to
+        show_location_info()
+    
 
 
 # Make a new player object that is currently in the 'outside' room.
-current_play = Player("Chelsea", room['outside'])
+current_player = Player("Chelsea", room['outside'])
 
 # Write a loop that:
 #
