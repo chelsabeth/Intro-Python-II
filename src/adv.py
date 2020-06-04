@@ -33,9 +33,44 @@ room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
+# print(room["treasure"].s_to.name)
+
+# PLANNING:
+'''
+*Penelope the Princess* 
+display welcome message & describe game
+player will start outside, tell them their location
+prompt user to make a choice between n, s, e, w
+    if user quits the game, stop the loop and show a msg
+based on players chosen direction, go to new location & display new location
+make sure players choice is a valid direction - if not display error msg
+'''
+
+welcome_msg = "Welcome to Penelope the Princess, an adventure game! Please pick a direction to go in - you are currently outside"
+quit_msg = "Thanks for playing Penelope the Princess!"
+
+direction_options = {
+    1: "n",
+    2: "s",
+    3: "e",
+    4: "w",
+    5: "q"
+}
+
 #
 # Main
 #
+
+# step 1 - display welcome message & describe game
+def show_welcome_msg():
+    welcome_msg = "Welcome to Penelope the Princess, an adventure game! Please pick a direction to go in - you are currently outside"
+    print(welcome_msg)
+
+
+# step 2 - prompt user to make a choice
+def get_user_direction():
+    direction = input("[1] n [2] s [3] e [4] w [5] q")
+    return direction_options[int(direction)]
 
 # Make a new player object that is currently in the 'outside' room.
 
