@@ -13,4 +13,14 @@ class Room:
             self.items = []
         else:
             self.items = items
+
+
+    def items_in_room(self):
+        if not self.items:
+            print('Sorry, this room has no items')
+        else: 
+            print('This room contains these items:\n')
+            for item in self.items:
+                print(item.name)
+                print(item.description)
     
