@@ -13,6 +13,6 @@ class Player:
         if not self.items:
             print('You have no items in your inventory')
         else: 
-            print('Here are your items:\n')
+            print('Here is your inventory:\n')
             for x in self.items:
                 print(x.name)

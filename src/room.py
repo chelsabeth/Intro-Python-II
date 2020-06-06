@@ -16,11 +16,11 @@ class Room:
 
 
     def items_in_room(self):
-        if not self.items:
+        if self.items == []:
             print('Sorry, this room has no items')
         else: 
-            print('This room contains these items:\n')
+            print('This room contains these items:')
             for item in self.items:
-                print(item.name)
-                print(item.description)
+                print(f'{item.name}, {item.description}')
+                # print(item.description)
     

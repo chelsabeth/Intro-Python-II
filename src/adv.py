@@ -39,7 +39,7 @@ room['treasure'].s_to = room['narrow']
 
 # PLANNING:
 '''
-*Penelope the Princess* 
+*The Brave Knight* 
 display welcome message & describe game
 player will start outside, tell them their location
 prompt user to make a choice between n, s, e, w
@@ -47,34 +47,35 @@ prompt user to make a choice between n, s, e, w
 based on players chosen direction, go to new location & display new location
 make sure players choice is a valid direction - if not display error msg
 '''
+current_player = Player("adventurer", room['outside'])
 
-welcome_msg = "Welcome to Penelope the Princess, an adventure game! Please pick a direction to go in - you are currently outside"
-quit_msg = "Thanks for playing Penelope the Princess!"
+welcome_msg = f"Welcome {current_player.name}, let's begin your brave journey!\nYou are currently in the {current_player.current_room.name}, Description: {current_player.current_room.description}"
+# quit_msg = "Thanks for playing 'The Brave Knight'!"
 
 #
 # Main
 #
 
 # step 1 - display welcome message & describe game
-def show_welcome_msg():
-    welcome_msg = "Welcome to Penelope the Princess, an adventure game! Please pick a direction to go in - you are currently outside"
-    print(welcome_msg)
+# welcome_msg = "Welcome to 'The Brave Knight', an adventure game! Please pick a direction to go in - you are currently outside"
+
 
 
 # step 2 - prompt user to make a choice
 def get_user_direction():
-    direction = input("please choose a direction - n, s, e, w")
+    direction = input("please choose a direction to go in - n, s, e, w\n")
     return direction
 
 
 # step 3 - if user quits game, show message
 # def quit_game():
     # quit = input("press q to quit")
-    # quit_msg = "Thanks for playing Penelope the Princess!"
+    # quit_msg = "Thanks for playing 'The Brave Knight'!"
     # print(quit_msg)
 
 def show_location_info():
     print(f"You are now in the {current_player.current_room.name}, Description: {current_player.current_room.description}")
+    current_player.current_room.items_in_room()
 
 
 def no_room_opt():
@@ -101,11 +102,34 @@ def get_location(get_user_direction):
         show_location_info()
     else:
         no_room_opt()
+
+
+
+# ITEMS
+items_list = [
+    Item('bag of gold', 'oooh shiny'),
+    Item('shield', 'to protect you'),
+    Item('sword', 'slay your enemy'),
+    Item('torch', 'light the way'),
+    Item('rock', 'fight like David & Goliath')
+]
+
+# "saber": Item("light saber", "May the force be with you.")
+
+room['narrow'].items.append(items_list[3])
+room['foyer'].items.append(items_list[1])
+room['foyer'].items.append(items_list[2])
+room['outside'].items.append(items_list[0])
+room['overlook'].items.append(items_list[4])
+
+
+# print(items_list[0].name)
     
 
 
 # Make a new player object that is currently in the 'outside' room.
-current_player = Player("Chelsea", room['outside'])
+
+# print(current_player.current_room.items)
 
 # Write a loop that:
 #
@@ -117,7 +141,7 @@ current_player = Player("Chelsea", room['outside'])
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
-# show_welcome_msg()
+print(welcome_msg)
 while True:
     choice = get_user_direction()
     get_location(choice)
